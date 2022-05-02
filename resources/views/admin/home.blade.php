@@ -17,6 +17,17 @@
                     {{ __('You are logged in!') }}
 
                     <h2> Benvenuto {{$user->name}} </h2>
+                    <ul>
+                        <h4>Cosa puoi fare: </h4>
+                        <li>
+                            <a href="{{route('admin.posts.create')}}">Crea Il tuo Post</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.posts.index')}}">Visualizza tutti i tuoi post</a>
+                        </li>
+                    </ul>
+                    
+
                 </div>
             </div>
         </div>
