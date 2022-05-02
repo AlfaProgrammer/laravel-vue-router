@@ -3,12 +3,15 @@
 @section('content')
     
     <div class="container">
-        <h2>Crea il tuo articolo</h2>
+        <h2>Crea il tuo Post</h2>
 
         <form action="{{ route('admin.posts.store') }}" method="POST">
             @csrf
             <div>
                 <input type="text" name="title" id="post-title" placeholder="Inserisci il titolo del Post" value="{{old('title')}}">
+                @error('title')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div>

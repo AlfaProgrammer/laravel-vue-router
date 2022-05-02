@@ -37,6 +37,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|min:5|max:150',
+            'content' => 'nullable',
+            'cover' => 'nullable'
+        ]);
 
         $data = $request->all();
 
@@ -48,7 +53,7 @@ class PostController extends Controller
 
         $newPost->save();
 
-        return view('admin.posts.index');
+        return redirect()->route('admin.posts.index');
     }
 
     /**
