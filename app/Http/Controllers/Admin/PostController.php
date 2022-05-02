@@ -37,7 +37,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $data = $request->all();
+
+        $newPost = new Post();
+        
+        $newPost->title = $data['title'];
+        $newPost->content = $data['content'];
+        $newPost->cover = $data['cover'];
+
+        $newPost->save();
+
+        return view('admin.posts.index');
     }
 
     /**

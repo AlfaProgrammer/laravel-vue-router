@@ -8,21 +8,25 @@
         <form action="{{ route('admin.posts.store') }}" method="POST">
             @csrf
             <div>
-                <input type="text" name="title" id="" placeholder="Inserisci il titolo del Post">
+                <input type="text" name="title" id="post-title" placeholder="Inserisci il titolo del Post" value="{{old('title')}}">
             </div>
 
             <div>
-                <textarea name="content" id="content" cols="30" rows="10" placeholder="Inserisci il contenuto del Post">
-
+                <textarea name="content" id="post-content" cols="100" rows="10" placeholder="Inserisci il contenuto del Post">
+                    {{old('content')}}
                 </textarea>
             </div>
 
             <div>
-                <input type="text" name="cover" id="" placeholder="url immagine">
+                <input type="text" name="cover" id="post-cover" placeholder="url immagine" value="{{old('cover')}}">
             </div>
-            
-            <button type="submit" class="btn btn-primary"> Post </button>
+
+           <div>
+                <button type="submit" class="btn btn-primary"> Post </button>
+           </div>
 
         </form>
+
+        
     </div>
 @endsection
