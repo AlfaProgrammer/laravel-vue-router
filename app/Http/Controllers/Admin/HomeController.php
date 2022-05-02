@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\User;
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
 
@@ -14,8 +15,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('admin.home');
+    {   
+        $user = Auth::user();
+        return view('admin.home', compact('user'));
     }
 
 }
