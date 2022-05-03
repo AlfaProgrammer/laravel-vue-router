@@ -54,19 +54,7 @@ class PostController extends Controller
         $newPost->slug = $slug;
 
 
-        $newPost->save();
-
-        // $data = $request->all();
-
-        // $newPost = new Post();
-        
-        // $newPost->title = $data['title'];
-        // $newPost->content = $data['content'];
-        // $newPost->slug = Str::slug( $newPost->title );
-        // $newPost->cover = $data['cover'];
-
-        // $newPost->save();
-        
+        $newPost->save();        
 
         return redirect()->route('admin.posts.index');
     }
@@ -90,7 +78,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.posts.edit');
     }
 
     /**
