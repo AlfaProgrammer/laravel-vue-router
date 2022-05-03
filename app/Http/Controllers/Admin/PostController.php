@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $userPosts = Post::paginate(10);
+        $userPosts = Post::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.posts.index', compact('userPosts'));
     }
 
@@ -43,17 +43,30 @@ class PostController extends Controller
             'content' => 'nullable',
             'cover' => 'nullable'
         ]);
+        
 
         $data = $request->all();
-
         $newPost = new Post();
-        
-        $newPost->title = $data['title'];
-        $newPost->content = $data['content'];
-        $newPost->slug = Str::slug( $newPost->title );
-        $newPost->cover = $data['cover'];
+
+        $slug = Post::getSlug( $data['title'] );
+               
+        $newPost->fill($data);
+        $newPost->slug = $slug;
+
 
         $newPost->save();
+
+        // $data = $request->all();
+
+        // $newPost = new Post();
+        
+        // $newPost->title = $data['title'];
+        // $newPost->content = $data['content'];
+        // $newPost->slug = Str::slug( $newPost->title );
+        // $newPost->cover = $data['cover'];
+
+        // $newPost->save();
+        
 
         return redirect()->route('admin.posts.index');
     }
