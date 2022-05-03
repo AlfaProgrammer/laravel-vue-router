@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -49,6 +50,7 @@ class PostController extends Controller
         
         $newPost->title = $data['title'];
         $newPost->content = $data['content'];
+        $newPost->slug = Str::slug( $newPost->title );
         $newPost->cover = $data['cover'];
 
         $newPost->save();
