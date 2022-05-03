@@ -20,11 +20,17 @@
                 <textarea class="form-control" name="content" id="post-content" cols="100" rows="10" placeholder="Inserisci il contenuto del Post">
                     {{old('content')}}
                 </textarea>
+                @error('content')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="post-cover" class="form-label">Contenuto del post</label>
                 <input class="form-control" type="text" name="cover" id="post-cover" placeholder="url immagine" value="{{old('cover')}}">
+                @error('cover')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
            <div class="mb-3">

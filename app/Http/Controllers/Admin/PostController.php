@@ -40,7 +40,7 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required|min:5|max:150',
-            'content' => 'nullable',
+            'content' => 'nullable|min:10',
             'cover' => 'nullable'
         ]);
         
@@ -76,9 +76,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        return view('admin.posts.edit');
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -88,9 +88,27 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:5|max:150',
+            'content' => 'nullable|min:10',
+            'cover' => 'nullable'
+        ]);
+        
+
+        $data = $request->all();
+        $newPost = new Post();
+
+        $slug = Post::getSlug( $data['title'] );
+               
+        $newPost->fill($data);
+        $newPost->slug = $slug;
+
+
+        $newPost->save();        
+
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -99,8 +117,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('admin.posts.index');
     }
 }
