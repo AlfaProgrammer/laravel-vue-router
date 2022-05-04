@@ -88,7 +88,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Post $post)
     {
         $request->validate([
             'title' => 'required|min:5|max:150',
@@ -98,6 +98,8 @@ class PostController extends Controller
         
 
         $data = $request->all();
+
+        // if($post->title !=)
         $newPost = new Post();
 
         $slug = Post::getSlug( $data['title'] );
