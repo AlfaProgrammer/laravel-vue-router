@@ -15,6 +15,19 @@
                 @enderror
             </div>
 
+            <div class="form-group">
+                <label for="category_id">Seleziona Categoria</label>
+                <select name="category_id" id="category_id" class="form-control @error ('category_id') is-invalid @enderror">
+                    <option value=""> --Nessuna Categoria--</option>
+                    @foreach ($categories as $category)
+                        <option {{old('category_id') == $category->id ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                    @error('category_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </select>
+            </div>
+
             <div class="mb-3">
                 <label for="post-content" class="form-label">Contenuto del post</label>
                 <textarea class="form-control" name="content" id="post-content" cols="100" rows="10" placeholder="Inserisci il contenuto del Post">

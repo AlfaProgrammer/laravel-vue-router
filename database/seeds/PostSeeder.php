@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Post;
+use App\Category;
 use Faker\Generator as Faker;
 
 class PostSeeder extends Seeder
@@ -13,6 +14,9 @@ class PostSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        $categories = Category::all();
+        $categoriesId = $categories->pluck('id');
+
         for ($i=0; $i < 100 ; $i++) { 
             $post = new Post();
 
