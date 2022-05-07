@@ -35,4 +35,8 @@ class Post extends Model
         };
         return $slug;
     }
+
+    public function categories(){
+        return $this->belongsTo('App\Category');
+    }
 }
