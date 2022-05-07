@@ -12,7 +12,8 @@ class Post extends Model
         'title',
         'content',
         'cover',
-        'slug'
+        'slug',
+        'category_id'
     ];
 
     public static function getSlug( $title ){
@@ -35,8 +36,10 @@ class Post extends Model
         };
         return $slug;
     }
+    
 
-    public function categories(){
+    // aggiungiamo relazione con model category
+    public function category(){
         return $this->belongsTo('App\Category');
     }
 }

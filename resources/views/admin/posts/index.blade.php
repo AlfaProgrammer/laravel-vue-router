@@ -19,7 +19,7 @@
                 {{-- <th scope="col">#</th> --}}
                 <th scope="col">Titolo</th>
                 <th scope="col">Contenuto</th>
-                {{-- <th scope="col">Categoria</th> --}}
+                <th scope="col">Categoria</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Azioni</th>
             </tr>
@@ -30,7 +30,7 @@
                     {{-- <td>{{ $post->id }}</td> --}}
                     <td>{{ $post->title }}</td>
                     <td>{{ substr($post->content, 0, 30) }}</td>
-                    {{-- <td>{{ substr($post->category->name) }}</td> --}}
+                    <td>{{ $post->category ? $post->category->name : '-'}}</td>
                     <td>{{ $post->slug }}</td>
 
                     <td class="d-flex">

@@ -16,8 +16,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $userPosts = Post::orderBy('created_at', 'desc')->paginate(10);
+    {   
+        // aggiunto join (edger loading)
+        $userPosts = Post::with('category')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.posts.index', compact('userPosts'));
     }
 
@@ -44,7 +45,7 @@ class PostController extends Controller
             'title' => 'required|min:5|max:150',
             'content' => 'nullable|min:10',
             'cover' => 'nullable',
-            'category_id'=> 'exists:categories,id|nullable'
+            'category_id'=> 'exists:categories,id|nullable' // cerchiamo corrispondeza di category_id(f-key) nella tabella categories
         ]);
         
 
@@ -53,7 +54,7 @@ class PostController extends Controller
 
         $slug = Post::getSlug( $data['title'] );
                
-        $newPost->fill($data);
+        $newPost->fill($data); //abbiamo aggiunto anche category_id al fillable
         $newPost->slug = $slug;
 
 
@@ -81,7 +82,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -96,24 +98,23 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:5|max:150',
             'content' => 'nullable|min:10',
-            'cover' => 'nullable'
+            'cover' => 'nullable',
+            'category_id'=> 'exists:categories,id|nullable'
+
         ]);
         
 
         $data = $request->all();
 
-        // if($post->title !=)
-        $newPost = new Post();
+        if($post->title != $data['title']){
+            $slug = Post::getSlug($data['title']);
+            $data['slug'] = $slug;
+        }
 
-        $slug = Post::getSlug( $data['title'] );
-               
-        $newPost->fill($data);
-        $newPost->slug = $slug;
-
-
-        $newPost->save();        
+        $post->update($data);
 
         return redirect()->route('admin.posts.index');
+
     }
 
     /**
