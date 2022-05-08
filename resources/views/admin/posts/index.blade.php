@@ -20,6 +20,7 @@
                 <th scope="col">Titolo</th>
                 <th scope="col">Contenuto</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Tag</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Azioni</th>
             </tr>
@@ -31,6 +32,11 @@
                     <td>{{ $post->title }}</td>
                     <td>{{ substr($post->content, 0, 30) }}</td>
                     <td>{{ $post->category ? $post->category->name : '-'}}</td>
+                    <td>
+                        @foreach ($post->tags as $tag)
+                            <span class="badge rounded-pill bg-dark text-light">{{$tag->name}}</span>
+                        @endforeach
+                    </td>
                     <td>{{ $post->slug }}</td>
 
                     <td class="d-flex">
