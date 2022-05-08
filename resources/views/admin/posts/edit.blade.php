@@ -1,7 +1,7 @@
+@dump($errors->all())
 @extends('layouts.app')
 
 @section('content')
-    
     <div class="container">
         <h2>Modifica il tuo Post</h2>
 
@@ -35,15 +35,15 @@
             <h4>Tags</h4>
             <div class="d-flex" style="gap: 1rem">
                 @foreach ($tags as $tag)                
-                    <div class="form-group form-check">
-                        <input {{$post->tags->contains( $tag ) ? 'checked' : ''}} type="checkbox" class="form-check-input" value="{{$tag->id}}" name="tags[]" id="tag{{ $tag->id }}">
-                        <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
+                    <div class="form-group form-check ">
+                        <input {{$post->tags->contains( $tag ) ? 'checked' : ''}} type="checkbox" class="form-check-input" value="{{$tag->id}}" name="tags[ {{$loop->index}} ]" id="tag{{ $tag->id }}">
+                        <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }} {{$loop->index}}</label>
+                        @error('tags.{{$loop->index}}')
+                            <span class="text-danger"> {{$message}} </span>
+                        @enderror
                     </div>
-                    @endforeach
+                @endforeach
             </div>
-            @error('tags')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
 
             <div class="mb-3">
                 <label for="post-content" class="form-label">Contenuto del post</label>

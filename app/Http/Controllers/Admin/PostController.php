@@ -97,12 +97,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // dd($request->all());
         $request->validate([
             'title' => 'required|min:5|max:150',
             'content' => 'nullable|min:10',
             'cover' => 'nullable',
             'category_id'=> 'exists:categories,id|nullable',
-            'tags' => 'exists:tags,id'
+            'tags.*' => 'exists:tags,id'
 
         ]);
 
