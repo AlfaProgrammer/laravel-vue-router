@@ -31,7 +31,10 @@ class PostSeeder extends Seeder
             $post->published_at = $faker->randomElement([null, $faker->dateTime()]);
 
             // $randomCategory = Category::find($faker->randomDigitNotNull());
+            $randomCategory = $faker->randomElement( $categoriesId );
             $randomTags = $faker->randomElements( $tagsId, 2);
+
+            $post->category_id = $randomCategory;
             $post->save();
             
             //assolutamente dopo aver salvato il post xk altrimenti non avrebbe l'id
