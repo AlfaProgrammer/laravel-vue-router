@@ -1,23 +1,22 @@
 <template>
   <div>
-    <!-- questo e il componente che viene montato all'inizio (route) -->
-    <nav>
-        <ul>
-            <li>Home</li>
-            <li>Tutti i post </li>
-            <li>Categorie </li>
-        </ul>
-    </nav>
-    <PostsIndex />
+
+    <ul>
+      <li>
+        <router-link :to="{name: 'posts.index'}">Tutti i post</router-link>
+      </li>
+    </ul>
+    <!-- <router-link to="/bar">Go to Bar</router-link> -->
+
+    <router-view> </router-view>
+
   </div>
 </template>
 
 <script>
-import PostsIndex from '../pages/Post.index.vue'
+
 export default {
-    components: {
-        PostsIndex,
-    }
+
 }
 </script>
 
