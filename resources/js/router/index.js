@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: 'posts',
+        path: '/posts',
         name: 'posts.index',
         component: Posts,
     }

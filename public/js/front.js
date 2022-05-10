@@ -1970,6 +1970,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2506,15 +2511,54 @@ var render = function () {
   return _c(
     "div",
     [
-      _c("ul", [
+      _c("nav", { staticClass: "bg-slate-400 py-5" }, [
         _c(
-          "li",
+          "ul",
+          {
+            staticClass:
+              "flex gap-10 justify-center text-white font-bold text-lg",
+          },
           [
-            _c("router-link", { attrs: { to: { name: "posts.index" } } }, [
-              _vm._v("Tutti i post"),
-            ]),
-          ],
-          1
+            _c(
+              "li",
+              {
+                staticClass:
+                  "py-2 px-10 bg-gray-700 rounded-full shadow-xl transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ",
+              },
+              [
+                _c("router-link", { attrs: { to: { name: "posts.index" } } }, [
+                  _vm._v("Tutti i post"),
+                ]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "py-2 px-10 bg-gray-700 rounded-full shadow-xl" },
+              [_vm._v("link")]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "py-2 px-10 bg-gray-700 rounded-full shadow-xl" },
+              [_vm._v("link")]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "py-2 px-10 bg-gray-700 rounded-full shadow-xl" },
+              [_vm._v("link")]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass: "py-2 px-10 bg-gray-700 rounded-full shadow-xl  ",
+              },
+              [_vm._v("link")]
+            ),
+          ]
         ),
       ]),
       _vm._v(" "),
@@ -17987,7 +18031,7 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var routes = [{
-  path: 'posts',
+  path: '/posts',
   name: 'posts.index',
   component: _pages_Post_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }];
