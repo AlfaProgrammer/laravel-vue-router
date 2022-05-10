@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import PostsIndex from './Post.index.vue'
+import PostsIndex from '../pages/Post.index.vue'
 export default {
     components: {
         PostsIndex,
