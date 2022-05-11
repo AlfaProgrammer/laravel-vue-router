@@ -13,7 +13,7 @@
                         <img src="https://picsum.photos/200/300" alt="" class="block w-full h-full boject-cover object-center ">
                     </figure>
 
-                    <div class="card-title mb-[10px] h-[100px]">
+                    <div class="card-title mb-[10px] min-h-[100px] px-[5px]">
                         <h3 class="text-2xl font-bold">{{post.title}}</h3>
                     </div>
 
