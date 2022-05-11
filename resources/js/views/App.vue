@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <body class="bg-slate-900 pb-10">
 
     <nav class="bg-slate-400 py-5">
       <ul class="flex gap-10 justify-center text-white font-bold text-lg">
@@ -15,7 +15,7 @@
 
     <router-view> </router-view>
 
-  </div>
+  </body>
 </template>
 
 <script>

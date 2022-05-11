@@ -1922,6 +1922,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2462,19 +2483,66 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "text-white" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container" },
-      _vm._l(_vm.posts, function (post) {
-        return _c("div", { key: post.id }, [
-          _vm._v("\n          " + _vm._s(post.title) + "\n      "),
-        ])
-      }),
-      0
-    ),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "ul",
+        { staticClass: "grid grid-cols-5 gap-6 auto-rows-max" },
+        _vm._l(_vm.posts, function (post) {
+          return _c(
+            "li",
+            {
+              key: post.id,
+              staticClass:
+                "border-2 border-slate-500 rounded-xl shadow-xl overflow-hidden",
+            },
+            [
+              _c("div", { staticClass: "card" }, [
+                _vm._m(1, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-title mb-[10px] h-[100px]" }, [
+                  _c("h3", { staticClass: "text-2xl font-bold" }, [
+                    _vm._v(_vm._s(post.title)),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "car-info pl-[10px]" }, [
+                  _c("p", { staticClass: "font-bold text-slate-500" }, [
+                    _vm._v(_vm._s(post.category.name)),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "flex gap-4 py-4" },
+                    _vm._l(post.tags, function (tag) {
+                      return _c(
+                        "li",
+                        {
+                          key: tag.id,
+                          staticClass:
+                            "card-tag bg-amber-600 text-black px-3 rounded",
+                        },
+                        [
+                          _vm._v(
+                            " \n                             " +
+                              _vm._s(tag.name) +
+                              " \n                          "
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]),
+            ]
+          )
+        }),
+        0
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -2482,8 +2550,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("h1", [_vm._v("Tutti i post")]),
+    return _c("div", { staticClass: "container my-4" }, [
+      _c("h1", { staticClass: "text-4xl font-bold " }, [
+        _vm._v("Tutti i post"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "h-52 mb-[10px]" }, [
+      _c("img", {
+        staticClass: "block w-full h-full boject-cover object-center ",
+        attrs: { src: "https://picsum.photos/200/300", alt: "" },
+      }),
     ])
   },
 ]
@@ -2509,7 +2590,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "body",
+    { staticClass: "bg-slate-900 pb-10" },
     [
       _c("nav", { staticClass: "bg-slate-400 py-5" }, [
         _c(
