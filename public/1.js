@@ -43,7 +43,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.post = res.data.post;
         _this.loading = false;
       })["catch"](function (err) {
-        console.warn(err);
+        // console.log($router)
+        _this.$router.push('/404');
       });
     }
   },

@@ -16,6 +16,10 @@ const routes = [
         path: '/posts/:slug',
         name: 'post.details',
         component: () => import ('../pages/PostDetails.vue')
+    },
+    {
+        path: '/*',
+        component: () => import('../pages/404.vue') 
     }
 ]
 
