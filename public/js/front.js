@@ -17989,18 +17989,18 @@ var routes = [{
   path: '/posts',
   name: 'posts.index',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../pages/Post.index.vue */ "./resources/js/pages/Post.index.vue"));
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../pages/Post.index.vue */ "./resources/js/pages/Post.index.vue"));
   }
 }, {
   path: '/posts/:slug',
   name: 'post.details',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../pages/PostDetails.vue */ "./resources/js/pages/PostDetails.vue"));
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../pages/PostDetails.vue */ "./resources/js/pages/PostDetails.vue"));
   }
 }, {
   path: '/*',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../pages/404.vue */ "./resources/js/pages/404.vue"));
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../pages/404.vue */ "./resources/js/pages/404.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

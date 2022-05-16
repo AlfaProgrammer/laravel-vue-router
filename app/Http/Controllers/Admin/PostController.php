@@ -8,6 +8,8 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use Illuminate\Support\Str;
+use App\Mail\SendPostDeletedMail; 
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -139,6 +141,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+
+        Mail::to('info@boolpress.com')->send( new SendPostDeletedMail( $post ) );
+
         return redirect()->route('admin.posts.index');
     }
 }
